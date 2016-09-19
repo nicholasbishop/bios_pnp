@@ -36,7 +36,7 @@ import datetime
 from os import path
 from xml.etree import ElementTree
 
-from bios_pnp import Vendor
+from bios_pnp import pnp
 
 
 class State(object):
@@ -62,7 +62,7 @@ def parse_spreadsheet(spreadsheet_path):
             date = datetime.datetime.strptime(raw_date, '%m/%d/%Y').date()
             if len(pnp_id.encode('ascii')) != 3:
                 raise ValueError('PNP ID must be exactly 3 characters')
-            yield Vendor(name, pnp_id, date)
+            yield pnp.Vendor(name, pnp_id, date)
 
 
 def parse_cli_args():
