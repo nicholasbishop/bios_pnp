@@ -5,7 +5,7 @@ test:
 	venv/bin/python test.py
 
 release: lint test
-	rm -r dist/
+	rm -fr dist/
 	venv/bin/python setup.py sdist bdist_wheel
 	venv/bin/twine upload dist/*
 
