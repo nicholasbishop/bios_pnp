@@ -9,7 +9,9 @@ file system.
 
 Example::
 
-  TODO
+  >>> from bios_pnp import pnp
+  >>> print(list(pnp.get_all_pnp_devices_from_sysfs()))
+  [Device(ids=[DeviceId(vendor='PNP', product=176, revision=0)])]
 
 
 License
