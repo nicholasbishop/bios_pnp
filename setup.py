@@ -30,7 +30,7 @@ def read_readme():
 
 setup(
     name='bios_pnp',
-    version='1.0.1',
+    version='1.1.1',
     description='Very simple module that enumerates Legacy Plug and Play devices',
     long_description=read_readme(),
     url='https://github.com/nicholasbishop/bios_pnp',
