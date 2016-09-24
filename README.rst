@@ -11,7 +11,7 @@ Example::
 
   >>> from bios_pnp import pnp
   >>> print(list(pnp.get_all_pnp_devices_from_sysfs()))
-  [Device(ids=[DeviceId(vendor='PNP', product=176, revision=0)])]
+  [Device(ids=[DeviceId(vendor=PNP, product=0x0b0, revision=0x0)])]
 
 
 License

@@ -60,7 +60,7 @@ class Vendor(object):
     approval_date = attr.ib()
 
 
-@attr.s
+@attr.s(repr=False)
 class DeviceId(object):
     """Plug and Play device ID.
 
@@ -76,6 +76,13 @@ class DeviceId(object):
     product = attr.ib()
     revision = attr.ib()
 
+    def __repr__(self):
+        return 'DeviceId(vendor={}, product={:#05x}, revision={:#x})'.format(
+            self.vendor, self.product, self.revision)
+
+    def __str__(self):
+        return '{}{:03x}{:x}'.format(self.vendor, self.product, self.revision)
+
 
 @attr.s
 class Device(object):
@@ -84,6 +91,11 @@ class Device(object):
     ids: list of PnpDeviceIds.
     """
     ids = attr.ib()
+
+    def __str__(self):
+        # pylint: disable=not-an-iterable
+        string_ids = (str(device_id) for device_id in self.ids)
+        return 'Device({})'.format(', '.join(string_ids))
 
 
 def split_n(seq, num):

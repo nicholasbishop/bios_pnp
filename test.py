@@ -17,9 +17,23 @@ class TestSplitN(TestCase):
         self.assertEqual(pnp.split_n('abc', 2), ('ab', 'c'))
 
 
-class TestPnpDevice(TestCase):
+class TestPnpDeviceId(TestCase):
+    def test_repr(self):
+        self.assertEqual(repr(pnp.DeviceId('ABC', 0x1, 0x1)),
+                         'DeviceId(vendor=ABC, product=0x001, revision=0x1)')
+
+    def test_str(self):
+        self.assertEqual(str(pnp.DeviceId('ABC', 0x1, 0x2)), 'ABC0012')
+
     def test_vendor_case(self):
         self.assertEqual(pnp.DeviceId('ifx', 0, 0).vendor, 'IFX')
+
+
+class TestPnpDevice(TestCase):
+    def test_str(self):
+        self.assertEqual(str(pnp.Device([pnp.DeviceId('ABC', 0x1, 0x2),
+                                         pnp.DeviceId('DEF', 0x3, 0x4)])),
+                         'Device(ABC0012, DEF0034)')
 
 
 class TestParse(TestCase):
