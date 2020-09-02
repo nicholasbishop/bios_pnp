@@ -13,7 +13,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-
 """Update vendors.py using the UEFI PNP vendor ID spreadsheet.
 
 The spreadsheet can be downloaded here:
@@ -89,8 +88,7 @@ def generate_vendor_module(vendors):
         vendor_name = vendor.name.encode('unicode-escape')
         key = vendor.pnp_id
         value = 'pnp.Vendor(u"{}", "{}", {})'.format(vendor_name,
-                                                     vendor.pnp_id,
-                                                     date)
+                                                     vendor.pnp_id, date)
         line = '    "{}": {},'.format(key, value)
         yield line
     yield '}'

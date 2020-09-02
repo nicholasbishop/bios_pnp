@@ -31,9 +31,12 @@ class TestPnpDeviceId(TestCase):
 
 class TestPnpDevice(TestCase):
     def test_str(self):
-        self.assertEqual(str(pnp.Device([pnp.DeviceId('ABC', 0x1, 0x2),
-                                         pnp.DeviceId('DEF', 0x3, 0x4)])),
-                         'Device(ABC0012, DEF0034)')
+        self.assertEqual(
+            str(
+                pnp.Device([
+                    pnp.DeviceId('ABC', 0x1, 0x2),
+                    pnp.DeviceId('DEF', 0x3, 0x4)
+                ])), 'Device(ABC0012, DEF0034)')
 
 
 class TestParse(TestCase):
@@ -50,9 +53,12 @@ class TestParse(TestCase):
 
     def test_parse_id_file(self):
         id_file = StringIO('INT3f0d\nPNP0c02\n')
-        self.assertEqual(pnp.parse_sysfs_pnp_id_file(id_file),
-                         pnp.Device(ids=[pnp.DeviceId('INT', 0x3f0, 0xd),
-                                         pnp.DeviceId('PNP', 0x0c0, 0x2)]))
+        self.assertEqual(
+            pnp.parse_sysfs_pnp_id_file(id_file),
+            pnp.Device(ids=[
+                pnp.DeviceId('INT', 0x3f0, 0xd),
+                pnp.DeviceId('PNP', 0x0c0, 0x2)
+            ]))
 
 
 if __name__ == '__main__':
