@@ -72,7 +72,7 @@ class DeviceId(object):
      revision: numeric revision ID
 
     """
-    vendor = attr.ib(convert=lambda string: string.upper())
+    vendor = attr.ib(converter=lambda string: string.upper())
     product = attr.ib()
     revision = attr.ib()
 

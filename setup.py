@@ -38,5 +38,5 @@ setup(
     author_email='nicholasbishop@gmail.com',
     license='Apache 2.0',
     packages=['bios_pnp'],
-    install_requires=['attrs>=16.0.0'],
+    install_requires=['attrs~=20.1.0'],
 )
