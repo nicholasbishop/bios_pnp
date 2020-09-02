@@ -89,8 +89,8 @@ def generate_vendor_module(vendors):
         #vendor_name = vendor.name.encode('unicode-escape')
         vendor_name = vendor.name
         key = vendor.pnp_id
-        value = 'pnp.Vendor(u"{}", "{}", {})'.format(vendor_name,
-                                                     vendor.pnp_id, date)
+        value = 'pnp.Vendor("{}", "{}", {})'.format(vendor_name, vendor.pnp_id,
+                                                    date)
         line = '    "{}": {},'.format(key, value)
         yield line
     yield '}'
