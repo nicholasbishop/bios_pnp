@@ -84,7 +84,6 @@ def generate_vendor_module(vendors):
         date = 'datetime.date({}, {}, {})'.format(vendor.approval_date.year,
                                                   vendor.approval_date.month,
                                                   vendor.approval_date.day)
-        vendor_name = vendor.name
         key = vendor.pnp_id
         value = 'pnp.Vendor("{}", "{}", {})'.format(vendor.name, vendor.pnp_id,
                                                     date)
