@@ -84,12 +84,9 @@ def generate_vendor_module(vendors):
         date = 'datetime.date({}, {}, {})'.format(vendor.approval_date.year,
                                                   vendor.approval_date.month,
                                                   vendor.approval_date.day)
-        # Vendor name may contain non-ASCII characters, escape it so
-        # it's a valid Python string literal
-        #vendor_name = vendor.name.encode('unicode-escape')
         vendor_name = vendor.name
         key = vendor.pnp_id
-        value = 'pnp.Vendor("{}", "{}", {})'.format(vendor_name, vendor.pnp_id,
+        value = 'pnp.Vendor("{}", "{}", {})'.format(vendor.name, vendor.pnp_id,
                                                     date)
         line = '    "{}": {},'.format(key, value)
         yield line
