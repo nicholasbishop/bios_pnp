@@ -85,7 +85,8 @@ def generate_vendor_module(vendors):
                                                   vendor.approval_date.day)
         # Vendor name may contain non-ASCII characters, escape it so
         # it's a valid Python string literal
-        vendor_name = vendor.name.encode('unicode-escape')
+        #vendor_name = vendor.name.encode('unicode-escape')
+        vendor_name = vendor.name
         key = vendor.pnp_id
         value = 'pnp.Vendor(u"{}", "{}", {})'.format(vendor_name,
                                                      vendor.pnp_id, date)
@@ -106,7 +107,7 @@ def main():
 
     with open(output_path, 'w') as wfile:
         output = '\n'.join(generate_vendor_module(vendors))
-        wfile.write(output.encode('utf-8'))
+        wfile.write(output)
 
 
 if __name__ == '__main__':
