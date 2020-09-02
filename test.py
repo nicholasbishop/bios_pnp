@@ -2,7 +2,7 @@
 
 # pylint: disable=missing-docstring
 
-from StringIO import StringIO
+from io import StringIO
 from unittest import TestCase, main
 
 from bios_pnp import pnp
