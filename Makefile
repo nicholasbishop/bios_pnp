@@ -1,3 +1,6 @@
+format:
+	venv/bin/yapf -i *.py bios_pnp/*.py
+
 lint:
 	venv/bin/pylint -rn *.py bios_pnp
 
@@ -9,4 +12,4 @@ release: lint test
 	venv/bin/python setup.py sdist bdist_wheel
 	venv/bin/twine upload dist/*
 
-.PHONY: lint test
+.PHONY: format lint test
