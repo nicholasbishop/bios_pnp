@@ -43,7 +43,7 @@ import attr
 
 
 @attr.s
-class Vendor(object):
+class Vendor:
     """Vendor metadata.
 
              name: company name (UTF-8)
@@ -61,7 +61,7 @@ class Vendor(object):
 
 
 @attr.s(repr=False)
-class DeviceId(object):
+class DeviceId:
     """Plug and Play device ID.
 
     vendor_id: three-digit vendor code (ASCII). Always stored as upper
@@ -85,7 +85,7 @@ class DeviceId(object):
 
 
 @attr.s
-class Device(object):
+class Device:
     """Plug 'n Play device.
 
     ids: list of PnpDeviceIds.
@@ -102,8 +102,7 @@ def split_n(seq, num):
     """Split |seq| in twain with the first part having length |num|."""
     if len(seq) < num:
         raise ValueError('sequence too short: seq={}, num={}'.format(seq, num))
-    else:
-        return seq[:num], seq[num:]
+    return seq[:num], seq[num:]
 
 
 def parse_hex(string):
@@ -125,8 +124,8 @@ def parse_device_id(device_id):
         return DeviceId(vendor=vendor,
                         product=parse_hex(product),
                         revision=parse_hex(revision))
-    else:
-        raise ValueError('invalid device_id: {}'.format(device_id))
+
+    raise ValueError('invalid device_id: {}'.format(device_id))
 
 
 def parse_sysfs_pnp_id_file(id_file):

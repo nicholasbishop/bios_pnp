@@ -39,7 +39,7 @@ from xml.etree import ElementTree
 from bios_pnp import pnp
 
 
-class State(object):
+class State:
     """Spreadsheet parsing state enumeration."""
     Initial = 'Initial'
     InTableHead = 'InTableHead'
