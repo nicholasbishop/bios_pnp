@@ -2,6 +2,8 @@
 bios_pnp
 ========
 
+⚠️ This package is no longer maintained and the repository has been archived. If you are interested in taking over the package, feel free to contact me: <nbishop@nbishop.net>.
+
 Very simple module that enumerates Legacy Plug and Play devices.
 
 Currently only Linux is supported. The data is sourced from the sysfs
